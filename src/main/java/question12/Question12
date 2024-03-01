@@ -1,0 +1,11 @@
+Consider the following recurrence relation:
+
+T(2) = T(3) = C1
+
+T(n) =4T(n/4)+n
+
+Prove by induction that
+
+T(n) = O(n log n)
+
+Solution: Submit via Canvas or on paper or type here.
