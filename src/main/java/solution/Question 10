@@ -1,0 +1,13 @@
+Show the following array after each pass of radix sort:
+
+615, 783, 299, 656, 302, 149, 237, 145
+
+Solution:
+After sorting by the least significant digit using a stable counting sort:
+302, 783, 615, 145, 656, 237, 299, 149
+
+After sorting by the second least significant digit using a stable counting sort:
+302, 615, 237, 145, 149, 656, 783, 299
+
+After sorting by the most significant digit using a stable counting sort:
+145, 149, 237, 299, 302, 615, 656, 783

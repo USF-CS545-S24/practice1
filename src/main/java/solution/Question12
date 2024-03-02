@@ -1,0 +1,26 @@
+Consider the following recurrence relation:
+
+T(2) = T(3) = C1
+
+T(n) = 4T(n/4)+n
+
+Prove by induction that
+
+T(n) = O(n log n)
+
+Solution:
+We need to prove T(n) <= C*n*log n
+1. Let's check if this is true for the base cases:
+T(2) = C1 <= C*2*log 2
+C1 <= 2C; True for C >= C1/2.
+
+T(3) = C1 <= C*3*log 3
+ if C >= C1/(3*log 3).
+
+Let's assume the bound is true for T(n/4) and prove it is true for T(n).
+T(n/4) <= Cn/4 * log (n/4)
+
+T(n) <= 4*(Cn/4) * log(n/4) + n <= C*n*(log n - log 4)  + n
+<= C*n*log n + n(1 -2C) <= C*n*log n, when 1-2C <= 0
+2C >= 1
+C >= 1/2

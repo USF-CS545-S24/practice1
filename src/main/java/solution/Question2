@@ -1,0 +1,35 @@
+Give Theta of the running time (as a function of n) of the following code snippet and explain your answer.
+
+public static int func2(int n) {
+   int sum1 = 0, sum2 = 0;
+   for (int m = 1; m <= n; m = m * 2) {
+       for (int l = 1; l <= n; l = l + 4) {
+           sum1++;
+       }
+   }
+
+   for (int i = 1; i <= n; i++) {
+       for (int j = 1; j < i; j++) {
+           sum2++;
+       }
+   }
+   return sum1 * sum2;
+}
+
+Solution:
+Answer: Theta(n^2)
+The m loop has (log n) iterations. Explanation: m is multiplied by 2 every time; after how many iterations will we stop?
+ When 2^k = n. By taking the logarithm of both sides, we get k = log n.
+
+The l loop has n/4 iterations, and we perform constant work inside the loop.
+Since the  m and l loops are nested, the running time of m and l loops is multiplied, and is Theta(n*log n).
+
+Let us consider the i and j loops.
+j depends on i, so we need to do a summation to compute the running time of both loops.
+When i is 1, the j loop will run 0 times, when i is 2, the j loop will run once,...
+when i is n, the j loop will run n-1 times. Adding it all up, we get:
+ 0 + 1 + ... + (n-1) = (n-1)*n / 2 = Theta(n^2)
+ Note that this is the running time of both loops i and j.
+
+Total running time of func1:
+Theta(n*log n) + Theta(n^2) = Theta(n^2).

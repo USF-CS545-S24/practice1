@@ -1,0 +1,15 @@
+Consider the following array: 1, 0, 13, 50, 22, 14
+If this is the result after the first partition of quicksort, which of these elements could have been the pivot?
+1
+0
+13
+50
+22
+14
+
+Please select one of the options on Canvas.
+
+Solution: 13 was used as the pivot.
+Since for 13, all elements on the left  (1 and 0) are smaller than 13, and
+all elements on the right  (50, 22, 14) are >= 13.
+Other elements could not have been the pivot in this example.

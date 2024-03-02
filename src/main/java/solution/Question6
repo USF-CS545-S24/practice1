@@ -1,0 +1,48 @@
+Consider the following function:
+
+public int func(int n) {
+
+      if (n <= 1)
+
+            return 1;
+
+      else
+
+            return func(n - 1) + func(n - 1);
+
+}
+
+(a) Give a recurrence relation for this function.
+
+(b) Solve the recurrence relation using repeated substitution to get the big O of the running time.
+
+Solution:
+(a) Give a recurrence relation for this function.
+
+ T(0) = C1
+ T(1) = C1
+ T(n) = 2*T(n-1) + C
+ For the recursive case: for each n, we call the same function twice on n-1,
+ and do constant amount of work (to check the if condition, to add the two results, and to return).
+
+(b) Solve the recurrence relation using repeated substitution to get the big O of the running time.
+T(n)= 2T(n-1) + C  (*) Original recurrence relation
+
+Write the original equation for T(n-1):
+T(n-1) = 2T(n-2) + C
+Plug the right hand side of the equation above into the original equation (*):
+T(n) = 2(2T(n-2) + C) + C = 2^2T(n-2) + 2C + C
+
+Write the original equation for T(n-2):
+T(n-2) = 2T(n-3) + C
+Substitute T(n-2) in the equation for T(n)  with the right hand side of this equation:
+T(n) = 2^2(2T(n-3) + C) + 2C + C = 2^3T(n-3) + 2^2*C + 2*C + C
+
+After k iterations, the equation will look like this:
+T(n) = 2^kT(n-k) + (2^(k-1) + ... + 2^0) * C  =
+= 2^kT(n-k)  + (2^k - 1)*C  (using the formula for the geometric series).
+
+We will reach the base case T(1) when k = n - 1.
+Plugging in k = n - 1 in the equation above, we get:
+T(n) = 2^(n-1) * T(1) + (2^(n - 1) - 1) * C = (1/2) * 2^n * C1 + ((1/2)*2^n - 1) * C
+= Theta(2^n).

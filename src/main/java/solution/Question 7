@@ -1,0 +1,35 @@
+Consider the function below.
+
+(a) Write down the recurrence relation for the recursive function shown below. Give both the base and the recursive case.
+
+(b) Solve the recurrence relation using the Master theorem. State what case of the Master theorem applies and explain why.
+
+   static boolean func(int[] arr, int start, int end, int elem) {
+       int n = end - start + 1;
+       if (n == 1) {
+           if (arr[start] == elem)
+               return true;
+           else
+               return false;
+        } else {
+            int m = (start + end) / 2;
+            if (arr[m] == elem)
+                return true;
+            else if (elem < arr[m])
+                return func(arr, start, m - 1, elem);
+            else
+                return func(arr, m + 1, end, elem);
+        }
+   }
+
+The Master Theorem cases are shown on Canvas.
+
+Solution:
+T(1) = C1
+T(n) = T(n/2) + C
+
+f(n) = C
+
+n ^ (log_b (a)) = n^(log2(1))  = n^0 = C2;
+Case 2 applies since both functions are Theta(1).
+The answer is Theta(log n).

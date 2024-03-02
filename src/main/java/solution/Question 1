@@ -1,0 +1,22 @@
+Give Theta of the running time (as a function of n) of the following code snippet and explain your answer.
+(Hint: you are expected to do a summation since the number of iterations of the "j loop" depends on i).
+
+public static void func1(int[] arr) {
+    int n = arr.length;
+    for (int i = 0; i < n; i++) {
+        for (int j = n - 1; j > i; j--) {
+            if (arr[j] < arr[j-1]) {
+                swap(j, j-1, arr);
+            }
+        }
+    }
+}
+
+Solution:
+The running time is Theta(n^2).
+The statement inside the j loop, swap(j, j-1, arr), takes a constant time.
+The number of iterations of the j loop depends on i, so to compute the running time,
+we need to do a summation. When i is 0, the j loop runs n-1 times.
+When i is 1, the j loop runs n-2 times, ..., when i is n-1, the j loop will run 0 times.
+To compute the running time for both loops, we need to sum up
+(n-1) + (n-2) + ... + 1 + 0  = 0 + 1 + ... + (n-1) = (n-1)*n/2 = Theta(n^2).
